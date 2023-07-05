@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ombudsman.Api", "Ombudsman.Api\Ombudsman.Api.csproj", "{AD529E03-C297-4D8D-8F68-A8A429E93616}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AD56B31-06BA-41EF-86C6-7E03C8C381E9} = {4AD56B31-06BA-41EF-86C6-7E03C8C381E9}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ombudsman.BizLogic", "Ombudsman.BizLogic\Ombudsman.BizLogic.csproj", "{4AD56B31-06BA-41EF-86C6-7E03C8C381E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{575F247B-2915-4E01-A811-86B560C04882} = {575F247B-2915-4E01-A811-86B560C04882}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ombudsman.DataAccessLayer.Postgre", "Ombudsman.DataAccessLayer.Postgre\Ombudsman.DataAccessLayer.Postgre.csproj", "{575F247B-2915-4E01-A811-86B560C04882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ombudsman.DataAccessLayer", "Ombudsman.DataAccessLayer\Ombudsman.DataAccessLayer.csproj", "{08DD0F2F-384F-4D03-85E1-53B950358531}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD529E03-C297-4D8D-8F68-A8A429E93616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD529E03-C297-4D8D-8F68-A8A429E93616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD529E03-C297-4D8D-8F68-A8A429E93616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD529E03-C297-4D8D-8F68-A8A429E93616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD56B31-06BA-41EF-86C6-7E03C8C381E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD56B31-06BA-41EF-86C6-7E03C8C381E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD56B31-06BA-41EF-86C6-7E03C8C381E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD56B31-06BA-41EF-86C6-7E03C8C381E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575F247B-2915-4E01-A811-86B560C04882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575F247B-2915-4E01-A811-86B560C04882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575F247B-2915-4E01-A811-86B560C04882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575F247B-2915-4E01-A811-86B560C04882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DD0F2F-384F-4D03-85E1-53B950358531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DD0F2F-384F-4D03-85E1-53B950358531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DD0F2F-384F-4D03-85E1-53B950358531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DD0F2F-384F-4D03-85E1-53B950358531}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04FEE368-37C2-4927-BB13-B31B529A108B}
+	EndGlobalSection
+EndGlobal
