@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Ombudsman.BizLogic.Attributes.ControllerAttributes;
 using Ombudsman.BizLogic.MappingProfiles;
 using Ombudsman.BizLogic.Services.ApplicationClassificationServices;
 using Ombudsman.BizLogic.Services.AuthenticationServices;
@@ -51,7 +53,9 @@ public static class AppSettingConfiguration
             .AddScoped<IMfyService, MfyService>()
             .AddScoped<IApplicationClassificationService, ApplicationClassificationService>()
             .AddScoped<IAuthenticationService, AuthenticationService>()
-            .AddScoped<IManualService, ManualService>();
+            .AddScoped<IManualService, ManualService>()
+            .AddTransient<IAuthorizationHandler, PermissionAuthorizationHandler>()
+            .AddTransient<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
             
 
         webApplicationBuilder.Services
