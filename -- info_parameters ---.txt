@@ -1,0 +1,46 @@
+-- info_parameters ---
+
+create table ombudsman.info_parameters(
+	-- common
+	id int not null primary key,
+	code CHARACTER VARYING(15) not null,
+	full_name CHARACTER VARYING(500) not null,
+	short_name CHARACTER VARYING(250) not null,
+	required_field boolean not null,
+	state_id integer not null,
+	
+	-- spravochnik
+	multiple_choice_directory boolean,
+	directory_id integer,
+	
+	-- sana
+	initial_value_date date,
+	greatest_value_date date,
+	
+	-- raqamli maydon
+	unit_of_measure_id integer,
+	regular_exp_digit_field CHARACTER VARYING(500),
+	after_digit smallint,
+	number_digit smallint,
+	initial_value_digit_field integer,
+	
+	-- telephon number
+	mask CHARACTER VARYING(15),
+	initial_value_tel_num CHARACTER VARYING(15),
+	tell_num_length smallint,
+	regular_exp_digit_tell_num CHARACTER VARYING(500),
+	
+	
+	constraint fk_state foreign key (state_id) references ombudsman.enum_state (id),
+	constraint fk_directory foreign key (directory_id) references ombudsman.enum_directory (id),
+	constraint fk_unit_of_measure foreign key (unit_of_measure_id) references ombudsman.enum_unit_of_measure (id)
+
+)
+
+-- enum_status ----
+
+create table ombudsman.enum_status(
+
+	id int not null primary key,
+	name CHARACTER VARYING(500) not null
+)
