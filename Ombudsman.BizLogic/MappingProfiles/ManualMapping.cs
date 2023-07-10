@@ -41,5 +41,14 @@ public class ManualMapping : Profile
 		
 		CreateMap<UnitOfMeasure, ManualDTO>()
 			.ForMember(apT => apT.Name, ap => ap.MapFrom(a => a.FullName));
+
+        CreateMap<Role, ManualDTO>()
+            .ForMember(apT => apT.Name, ap => ap.MapFrom(a => a.FullName));
+
+        CreateMap<Position, ManualDTO>()
+            .ForMember(apT => apT.Name, ap => ap.MapFrom(a => a.FullName));
+
+        CreateMap<Permission, ManualDTO>()
+            .ForMember(apT => apT.Name, ap => ap.MapFrom(a => $"{a.PermissionRouteName} {a.PermissionInterfaceName}"));
     }
 }

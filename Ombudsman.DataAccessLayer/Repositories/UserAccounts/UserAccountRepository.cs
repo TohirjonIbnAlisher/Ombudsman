@@ -2,7 +2,6 @@
 using Ombudsman.DataAccessLayer.DBContext;
 using Ombudsman.DataAccessLayer.Models.Infos;
 using Ombudsman.DataAccessLayer.Repositories.Bases;
-using System.Security;
 
 namespace Ombudsman.DataAccessLayer.Repositories.UserAccounts;
 
@@ -22,7 +21,7 @@ public class UserAccountRepository : GenericRepository<UserAccount>, IUserAccoun
                     join rp in _dbContext.PermissionRoles on r.Id equals rp.RoleId
                     join p in _dbContext.Permission on rp.PermissionId equals p.Id
                     where i.Login == username && p.PermissionName == permission
-                    select new { Id = p.Id, PermissionsName = p.PermissionName };
+                    select new { Id = p.Id, PermissionName = p.PermissionName };
 
         var storagePermission = await query.Distinct().ToListAsync();
 

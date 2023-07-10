@@ -16,4 +16,7 @@ public interface IManualService
     IQueryable<ManualDTO> RetrieveOrganizationTypes();
     IQueryable<ManualDTO> RetrieveStates();
     IQueryable<ManualDTO> RetrieveUnitOfMeasures();
+    IQueryable<ManualDTO> RetrievePermissions();
+    IQueryable<ManualDTO> RetrieveRoles();
+    IQueryable<ManualDTO> RetrievePositions();
 }

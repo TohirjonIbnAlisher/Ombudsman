@@ -4,7 +4,7 @@ using Ombudsman.DataAccessLayer.Repositories.Bases;
 
 namespace Ombudsman.DataAccessLayer.Repositories.Parameters;
 
-public class ParameterRepository : RepositoryBase<Parameter>, IParameterRepository
+public class ParameterRepository : GenericRepository<Parameter>, IParameterRepository
 {
 	public ParameterRepository(OmbudsmanDBContext ombudsmanDBContext)
 		: base(ombudsmanDBContext)

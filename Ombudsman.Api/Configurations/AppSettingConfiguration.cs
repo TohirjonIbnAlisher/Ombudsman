@@ -5,12 +5,17 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Ombudsman.BizLogic.Attributes.ControllerAttributes;
 using Ombudsman.BizLogic.MappingProfiles;
+using Ombudsman.BizLogic.Services.ApplicationClassificationParamsServices;
 using Ombudsman.BizLogic.Services.ApplicationClassificationServices;
+using Ombudsman.BizLogic.Services.ApplicationParameterServices;
+using Ombudsman.BizLogic.Services.ApplicationServices;
+using Ombudsman.BizLogic.Services.AssigningPermissionServices;
 using Ombudsman.BizLogic.Services.AuthenticationServices;
 using Ombudsman.BizLogic.Services.DistrictServices;
 using Ombudsman.BizLogic.Services.ManualServices;
 using Ombudsman.BizLogic.Services.MfyServices;
 using Ombudsman.BizLogic.Services.OrganizationServices;
+using Ombudsman.BizLogic.Services.Parameters;
 using Ombudsman.BizLogic.Services.RegionServices;
 using Ombudsman.BizLogic.Services.UserAccountservices;
 using Ombudsman.DataAccessLayer.Authentications;
@@ -18,8 +23,11 @@ using Ombudsman.DataAccessLayer.DBContext;
 using Ombudsman.DataAccessLayer.Repositories;
 using Ombudsman.DataAccessLayer.Repositories.ApplicantTypes;
 using Ombudsman.DataAccessLayer.Repositories.ApplicationClassifacitaions;
+using Ombudsman.DataAccessLayer.Repositories.ApplicationClassificationParameters;
 using Ombudsman.DataAccessLayer.Repositories.ApplicationFormingTypes;
 using Ombudsman.DataAccessLayer.Repositories.ApplicationForms;
+using Ombudsman.DataAccessLayer.Repositories.ApplicationParameter;
+using Ombudsman.DataAccessLayer.Repositories.Applications;
 using Ombudsman.DataAccessLayer.Repositories.ApplicationTypes;
 using Ombudsman.DataAccessLayer.Repositories.BusinessSectors;
 using Ombudsman.DataAccessLayer.Repositories.Districts;
@@ -28,8 +36,13 @@ using Ombudsman.DataAccessLayer.Repositories.Mfys;
 using Ombudsman.DataAccessLayer.Repositories.OrganizationLevels;
 using Ombudsman.DataAccessLayer.Repositories.Organizations;
 using Ombudsman.DataAccessLayer.Repositories.OrganizationTypes;
+using Ombudsman.DataAccessLayer.Repositories.Parameters;
 using Ombudsman.DataAccessLayer.Repositories.ParameterTypes;
+using Ombudsman.DataAccessLayer.Repositories.PermissionRoles;
+using Ombudsman.DataAccessLayer.Repositories.Permissions;
+using Ombudsman.DataAccessLayer.Repositories.Positions;
 using Ombudsman.DataAccessLayer.Repositories.Regions;
+using Ombudsman.DataAccessLayer.Repositories.Roles;
 using Ombudsman.DataAccessLayer.Repositories.States;
 using Ombudsman.DataAccessLayer.Repositories.UnitOfMeasures;
 using Ombudsman.DataAccessLayer.Repositories.UserAccounts;
@@ -47,6 +60,8 @@ public static class AppSettingConfiguration
 
         webApplicationBuilder.Services
             .AddScoped<IOrganizationServices, OrganizationService>()
+            .AddScoped<IApplicationService, ApplicationService>()
+            .AddScoped<IAssigningPermissionService, AssigningPermissionService>()
             .AddScoped<IUserAccountService, UserAccountService>()
             .AddScoped<IRegionService, RegionService>()
             .AddScoped<IDistrictService, DistrictService>()
@@ -54,12 +69,16 @@ public static class AppSettingConfiguration
             .AddScoped<IApplicationClassificationService, ApplicationClassificationService>()
             .AddScoped<IAuthenticationService, AuthenticationService>()
             .AddScoped<IManualService, ManualService>()
+            .AddScoped<IParameterService, ParameterService>()
+            .AddScoped<IApplicationClassificationParamService, ApplicationClassificationParamService>()
+            .AddScoped<IApplicationParameterService, ApplicationParameterService>()
             .AddTransient<IAuthorizationHandler, PermissionAuthorizationHandler>()
             .AddTransient<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
             
 
         webApplicationBuilder.Services
             .AddScoped<IOrganizationRepository, OrganizationRepository>()
+            .AddScoped<IPermissionRoleRepository, PermissionRoleRepository>()
             .AddScoped<IUserAccountRepository, UserAccountRepository>()
             .AddScoped<IRegionRepository, RegionRepository>()
             .AddScoped<IDistrictRepository, DistrictRepository>()
@@ -77,7 +96,15 @@ public static class AppSettingConfiguration
             .AddScoped<IUnitOfMeasureRepository, UnitOfMeasureRepository>()
             .AddScoped<IJwtTokenGeneration, JwtTokenGeneration>()
             .AddScoped<IPasswordGeneration, PasswordGeneration>()
-            .AddScoped<IStateRepository, StateRepository>();
+            .AddScoped<IStateRepository, StateRepository>()
+            .AddScoped<IPermissionRepository, PermissionRepository>()
+            .AddScoped<IUnitOfMeasureRepository, UnitOfMeasureRepository>()
+            .AddScoped<IPositionRepository, PositionRepository>()
+            .AddScoped<IApplicationRepository, ApplicationRepository>()
+            .AddScoped<IRolesRepository, RoleRepository>()
+            .AddScoped<IParameterRepository, ParameterRepository>()
+            .AddScoped<IApplicationParameterRepository, ApplicationParameterRepository>()
+            .AddScoped<IApplicationClassificationParameterRepository, ApplicationClassificationParameterRepository>();
 
         webApplicationBuilder.Services.AddAutoMapper(typeof(OrganizationMapping));
 

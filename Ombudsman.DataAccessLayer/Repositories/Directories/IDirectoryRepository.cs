@@ -3,6 +3,6 @@ using Ombudsman.DataAccessLayer.Repositories.Bases;
 
 namespace Ombudsman.DataAccessLayer.Repositories;
 
-public interface IDirectoryRepository : IRepositoryBase<DirectoryOmbudsman>
+public interface IDirectoryRepository : IRepositoryBase<SysTable>
 {
 }

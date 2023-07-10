@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ombudsman.DataAccessLayer.Models.Enums;
 
+[Table("enum_permission", Schema = "ombudsman")]
 public class Permission
 {
     [Key]
@@ -12,7 +13,7 @@ public class Permission
     [Column("permission_name")]
     public string PermissionName { get; set; }
 
-    [Column("permission_interface_name")]
+    [Column("permission_interface")]
     public string PermissionInterfaceName { get; set; }
 
     [Column("permission_route_name")]

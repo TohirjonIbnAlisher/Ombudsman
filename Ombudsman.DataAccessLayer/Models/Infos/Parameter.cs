@@ -28,12 +28,15 @@ public class Parameter
 
     [Column("state_id")]
     public int StateId { get; set; }
+    
+    [Column("parameter_type_id")]
+    public int ParameterTypeId { get; set; }
 
     [Column("multiple_choice_directory")]
     public bool? MultipleChoiceDirectory { get; set; }
 
-    [Column("directory_id")]
-    public int? DirectoryId { get; set; }
+    [Column("sys_table_id")]
+    public int? SysTableId { get; set; }
 
     [Column("initial_value_date")]
     public DateOnly? InitialValueDate { get; set; }
@@ -72,13 +75,16 @@ public class Parameter
     [StringLength(500)]
     public string? RegularExpDigitTellNum { get; set; }
 
-    [ForeignKey("DirectoryId")]
-    public virtual DirectoryOmbudsman? Directory { get; set; }
+    [ForeignKey("SysTableId")]
+    public virtual SysTable? SysTable { get; set; }
 
     [ForeignKey("StateId")]
     public virtual State State { get; set; } = null!;
 
     [ForeignKey("UnitOfMeasureId")]
     public virtual UnitOfMeasure? UnitOfMeasure { get; set; }
+
+    [ForeignKey("ParameterTypeId")]
+    public virtual ParameterType ParameterType { get; set; }
 }
 

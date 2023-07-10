@@ -29,7 +29,7 @@ public class OmbudsmanDBContext : DbContext
 
     public virtual DbSet<BusinessSector> BusinessSectors { get; set; }
 
-    public virtual DbSet<DirectoryOmbudsman> Directories { get; set; }
+    public virtual DbSet<SysTable> Directories { get; set; }
 
     public virtual DbSet<EmploymentType> EmploymentTypes { get; set; }
 
@@ -65,6 +65,10 @@ public class OmbudsmanDBContext : DbContext
 
     public virtual DbSet<PermissionRole> PermissionRoles { get; set; }
     public virtual DbSet<Permission> Permission { get; set; }
+    public virtual DbSet<AppilcationParam> AppilcationParam { get; set; }
+    public virtual DbSet<ApplicationClassificationParameter> ApplicationClassificationParameter { get; set; }
+
+
 
 
 }

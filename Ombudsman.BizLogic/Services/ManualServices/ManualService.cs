@@ -10,8 +10,10 @@ using Ombudsman.DataAccessLayer.Repositories.BusinessSectors;
 using Ombudsman.DataAccessLayer.Repositories.EmploymentTypes;
 using Ombudsman.DataAccessLayer.Repositories.OrganizationLevels;
 using Ombudsman.DataAccessLayer.Repositories.OrganizationTypes;
-using Ombudsman.DataAccessLayer.Repositories.Parameters;
 using Ombudsman.DataAccessLayer.Repositories.ParameterTypes;
+using Ombudsman.DataAccessLayer.Repositories.Permissions;
+using Ombudsman.DataAccessLayer.Repositories.Positions;
+using Ombudsman.DataAccessLayer.Repositories.Roles;
 using Ombudsman.DataAccessLayer.Repositories.States;
 using Ombudsman.DataAccessLayer.Repositories.UnitOfMeasures;
 
@@ -30,6 +32,9 @@ public class ManualService : IManualService
     private readonly IParameterTypeRepository _parameterTypeRepository;
     private readonly IStateRepository _stateRepository;
     private readonly IUnitOfMeasureRepository _unitOfMeasureRepository;
+    private readonly IPermissionRepository _permissionRepository;
+    private readonly IRolesRepository _rolesRepository;
+    private readonly IPositionRepository _positionRepository;
     private readonly IMapper _mapper;
 
     public ManualService(
@@ -44,7 +49,10 @@ public class ManualService : IManualService
         IOrganizationTypeRepository organizationTypeRepository,
         IMapper mapper,
         IStateRepository stateRepository,
-        IUnitOfMeasureRepository unitOfMeasureRepository)
+        IUnitOfMeasureRepository unitOfMeasureRepository,
+        IPermissionRepository permissionRepository,
+        IRolesRepository rolesRepository,
+        IPositionRepository positionRepository)
     {
         _applicationFormingTypeRepository = applicationFormingTypeRepository;
         _applicationFormRepository = applicationFormRepository;
@@ -58,6 +66,9 @@ public class ManualService : IManualService
         _mapper = mapper;
         _stateRepository = stateRepository;
         _unitOfMeasureRepository = unitOfMeasureRepository;
+        _permissionRepository = permissionRepository;
+        _rolesRepository = rolesRepository;
+        _positionRepository = positionRepository;
     }
 
     public IQueryable<ManualDTO> RetrieveApplicantTypes()
@@ -135,4 +146,26 @@ public class ManualService : IManualService
 
         return selectedParamTypes.Select(parType => _mapper.Map<UnitOfMeasure, ManualDTO>(parType));
     }
+    public IQueryable<ManualDTO> RetrievePermissions()
+    {
+        var selectedParamTypes = _permissionRepository.SelectAllEntity(new string[] { });
+
+        return selectedParamTypes.Select(parType => _mapper.Map<Permission, ManualDTO>(parType));
+    }
+    
+    public IQueryable<ManualDTO> RetrieveRoles()
+    {
+        var selectedParamTypes = _rolesRepository.SelectAllEntity(new string[] { });
+
+        return selectedParamTypes.Select(parType => _mapper.Map<Role, ManualDTO>(parType));
+    } 
+    
+    public IQueryable<ManualDTO> RetrievePositions()
+    {
+        var selectedParamTypes = _positionRepository.SelectAllEntity(new string[] { });
+
+        return selectedParamTypes.Select(parType => _mapper.Map<Position, ManualDTO>(parType));
+    }
+
+
 }

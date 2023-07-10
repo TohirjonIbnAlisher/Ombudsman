@@ -2,6 +2,6 @@
 
 public class CustomClaimNames
 {
-    public const string Login = "login";
-    public const string Id = "id";
+    public const string Login = "Login";
+    public const string Id = "Id";
 }

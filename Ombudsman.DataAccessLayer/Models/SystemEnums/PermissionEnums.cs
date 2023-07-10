@@ -61,5 +61,42 @@ public enum PermissionEnums
     GetUserAccountByIdAsync,
     GetAllUserAccounts,
     //Get(),
-    DeleteUserAccountAsync
+    DeleteUserAccountAsync,
+
+    // AssigningPermission
+    PostAssigningPermissionAsync,
+    PutAssigningPermissionAsync,
+    GetAssigningPermissionByIdAsync,
+    GetAllAssigningPermissions,
+    DeleteAssigningPermissionAsync,
+
+
+    // ApplicationClassificationParam
+    PostApplicationClassificationParamAsync,
+    PutApplicationClassificationParamAsync,
+    GetApplicationClassificationParamByIdAsync,
+    GetAllApplicationClassificationParams,
+
+    //Application
+    PostApplicationAsync,
+    PutApplicationAsync,
+    GetApplicationByIdAsync,
+    GetAllApplications,
+    DeleteApplicationAsync,
+
+    // ApplicationParameter
+
+    PostApplicationParameterAsync,
+    PutApplicationParameterAsync,
+    GetApplicationParameterByIdAsync,
+    GetAllApplicationParameters,
+
+    // Parameter
+
+    PostParameterAsync,
+    GetParameterByIdAsync,
+    GetAllParameters,
+    DeleteParameterAsync,
+
+
 }

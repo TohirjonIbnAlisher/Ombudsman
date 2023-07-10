@@ -3,6 +3,6 @@ using Ombudsman.DataAccessLayer.Repositories.Bases;
 
 namespace Ombudsman.DataAccessLayer.Repositories.Parameters;
 
-public interface IParameterRepository : IRepositoryBase<Parameter>
+public interface IParameterRepository : IGenericRepository<Parameter>
 {
 }

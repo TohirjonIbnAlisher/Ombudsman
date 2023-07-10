@@ -4,20 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ombudsman.DataAccessLayer.Models.Enums;
 
-[Table("enum_directory", Schema = "ombudsman")]
-public class DirectoryOmbudsman
+[Table("enum_sys_table", Schema = "ombudsman")]
+public class SysTable
 {
     [Key]
     [Column("id")]
     public int Id { get; set; }
 
-    [Column("full_name")]
+    [Column("interface_name")]
     [StringLength(500)]
-    public string FullName { get; set; } = null!;
+    public string InterFaceName { get; set; } = null!;
 
-    [Column("short_name")]
+    [Column("sys_table_name")]
     [StringLength(250)]
-    public string ShortName { get; set; } = null!;
+    public string SysTableName { get; set; } = null!;
 
     [Column("state_id")]
     public int StateId { get; set; }

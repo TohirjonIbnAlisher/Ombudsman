@@ -3,6 +3,6 @@ using Ombudsman.DataAccessLayer.Repositories.Bases;
 
 namespace Ombudsman.DataAccessLayer.Repositories.ApplicantTypes;
 
-public interface IApplicantTypeRepository : IRepositoryBase<ApplicantType>
+public interface IApplicantTypeRepository : IGenericRepository<ApplicantType>
 {
 }

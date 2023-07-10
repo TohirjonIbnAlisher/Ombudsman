@@ -4,7 +4,7 @@ using Ombudsman.DataAccessLayer.Repositories.Bases;
 
 namespace Ombudsman.DataAccessLayer.Repositories.ApplicantTypes;
 
-public class ApplicantTypeRepository : RepositoryBase<ApplicantType>, IApplicantTypeRepository
+public class ApplicantTypeRepository : GenericRepository<ApplicantType>, IApplicantTypeRepository
 {
 	public ApplicantTypeRepository(OmbudsmanDBContext ombudsmanDBContext)
 		: base(ombudsmanDBContext)

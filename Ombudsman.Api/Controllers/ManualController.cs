@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Ombudsman.BizLogic.Services.ManualServices;
 
 namespace Ombudsman.Api.Controllers
@@ -14,48 +15,74 @@ namespace Ombudsman.Api.Controllers
             _manualService = manualService;
         }
 
-        [HttpGet("employmentTypes")]
+        [HttpGet("employmentTypesSelectList")]
+        [Authorize]
         public IActionResult GetEmploymentTypes()
            => Ok(this._manualService.RetrieveEmploymentTypes());
 
-        [HttpGet("businessSector")]
+        [HttpGet("businessSectorSelectList")]
+        [Authorize]
         public IActionResult GetBusinessSectors()
            => Ok(this._manualService.RetrieveBusinessSector());
 
-        [HttpGet("applicantTypes")]
+        [HttpGet("applicantTypesSelectList")]
+        [Authorize]
         public IActionResult GetApplicantTypes()
            => Ok(this._manualService.RetrieveApplicantTypes());
 
-        [HttpGet("applicationFormingTypes")]
+        [HttpGet("applicationFormingTypesSelectList")]
+        [Authorize]
         public IActionResult GetApplicationFormingTypes()
            => Ok(this._manualService.RetrieveApplicationFormingTypes());
 
-        [HttpGet("applicationForms")]
+        [HttpGet("applicationFormsSelectList")]
+        [Authorize]
         public IActionResult GetApplicationForms()
            => Ok(this._manualService.RetrieveApplicationForms());
 
-        [HttpGet("applicationTypes")]
+        [HttpGet("applicationTypesSelectList")]
+        [Authorize]
         public IActionResult GetApplicationTypes()
            => Ok(this._manualService.RetrieveApplicationTypes());
 
-        [HttpGet("organizationLevels")]
+        [HttpGet("organizationLevelsSelectList")]
+        [Authorize]
         public IActionResult GetOrganizationLevels()
            => Ok(this._manualService.RetrieveOrganizationLevels());
 
-        [HttpGet("organizationTypes")]
+        [HttpGet("organizationTypesSelectList")]
+        [Authorize]
         public IActionResult GetOrganizationTypes()
            => Ok(this._manualService.RetrieveOrganizationTypes());
 
-        [HttpGet("parameterTypes")]
+        [HttpGet("parameterTypesSelectList")]
+        [Authorize]
         public IActionResult GetParameterTypes()
            => Ok(this._manualService.RetrieveParameterTypes());
         
-        [HttpGet("states")]
+        [HttpGet("statesSelectList")]
+        [Authorize]
         public IActionResult GetStates()
            => Ok(this._manualService.RetrieveStates());
         
-        [HttpGet("unitOfMeasures")]
+        [HttpGet("unitOfMeasuresSelectList")]
+        [Authorize]
         public IActionResult GetUnitOfMeasures()
-           => Ok(this._manualService.RetrieveUnitOfMeasures());
+           => Ok(this._manualService.RetrieveUnitOfMeasures()); 
+        
+        [HttpGet("permissionsSelectList")]
+        [Authorize]
+        public IActionResult GetPermissions()
+           => Ok(this._manualService.RetrievePermissions());
+        
+        [HttpGet("rolesSelectList")]
+        [Authorize]
+        public IActionResult GetRoles()
+           => Ok(this._manualService.RetrieveRoles());
+        
+        [HttpGet("positionsSelectList")]
+        [Authorize]
+        public IActionResult GetPositions()
+           => Ok(this._manualService.RetrievePositions());
     }
 }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Ombudsman.DataAccessLayer.Models;
+using Ombudsman.DataAccessLayer.Models.Infos;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace Ombudsman.DataAccessLayer.Postgre;
 
@@ -72,19 +71,19 @@ public partial class DocApplication
 
     [ForeignKey("ApplicationClassification2Id")]
     [InverseProperty("DocApplicationApplicationClassification2s")]
-    public virtual InfoApplicationClassification ApplicationClassification2 { get; set; } = null!;
+    public virtual ApplicationClassification ApplicationClassification2 { get; set; } = null!;
 
     [ForeignKey("ApplicationClassification3Id")]
     [InverseProperty("DocApplicationApplicationClassification3s")]
-    public virtual InfoApplicationClassification ApplicationClassification3 { get; set; } = null!;
+    public virtual ApplicationClassification ApplicationClassification3 { get; set; } = null!;
 
     [ForeignKey("ApplicationClassification4Id")]
     [InverseProperty("DocApplicationApplicationClassification4s")]
-    public virtual InfoApplicationClassification ApplicationClassification4 { get; set; } = null!;
+    public virtual ApplicationClassification ApplicationClassification4 { get; set; } = null!;
 
     [ForeignKey("ApplicationTypeId")]
     [InverseProperty("DocApplications")]
-    public virtual EnumApplicationType ApplicationType { get; set; } = null!;
+    public virtual ApplicationType ApplicationType { get; set; } = null!;
 
     [ForeignKey("BaseApplicationClassificationId")]
     [InverseProperty("DocApplicationBaseApplicationClassifications")]
@@ -94,9 +93,8 @@ public partial class DocApplication
     [InverseProperty("DocApplications")]
     public virtual EnumBusinessSector BusinessSector { get; set; } = null!;
 
-    [ForeignKey("DistrictId")]
-    [InverseProperty("DocApplications")]
-    public virtual InfoDistrict? District { get; set; }
+    [ForeignKey(nameof(DistrictId))]
+    public virtual District? District { get; set; }
 
     [ForeignKey("MfyId")]
     [InverseProperty("DocApplications")]
